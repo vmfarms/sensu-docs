@@ -743,7 +743,8 @@ The following attributes are configured within the `{ "client": { "http_socket":
       "bind": "127.0.0.1",
       "port": 3031,
       "user": "http-auth-user-name",
-      "password": "use-somethign-secure-here"
+      "password": "use-something-secure-here",
+      "protect_all_endpoints": false
     }
   }
 }
@@ -781,7 +782,8 @@ The following attributes are configured within the `{ "client": { "http_socket":
 
 `user`
 : description
-  : The user name to enforce HTTP authentication on endpoints that require it
+  : The user name to enforce HTTP authentication on endpoints that require it.
+    By default, only the settings endpoint requires authentication.
 : required
   : false
 : type
@@ -793,7 +795,8 @@ The following attributes are configured within the `{ "client": { "http_socket":
 
 `password`
 : description
-  : The password to enforce HTTP authentication on endpoints that require it
+  : The password to enforce HTTP authentication on endpoints that require it.
+    By default, only the settings endpoint requires authentication.
 : required
   : false
 : type
@@ -801,6 +804,21 @@ The following attributes are configured within the `{ "client": { "http_socket":
 : example
   : ~~~ shell
     "password": "F76639PML6c7sk5nI46N"
+    ~~~
+
+`protect_all_endpoints`
+: description
+  : Enforce HTTP authentication on the info and results endpoints, in addition
+    to the settings endpoint.
+: required
+  : false
+: type
+  : Boolean
+: default
+  : false
+: example
+  : ~~~ shell
+    "protect_all_endpoints": true
     ~~~
 
 #### `keepalive` attributes
